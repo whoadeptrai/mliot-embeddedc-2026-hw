@@ -1,0 +1,16 @@
+4.2
+Dựa vào log địa chỉ, 3 biến được phân bổ như sau: BIKE_MODEL (biến hằng số) an toàn nằm ở ROM/.rodata 
+(004050C0); total_odometer (biến toàn cục khởi tạo bằng 0) thuộc RAM/.bss (00407020); 
+và current_speed (biến cục bộ trong hàm) được đẩy lên RAM/Stack (0061FF18).
+ Sự chênh lệch địa chỉ này minh chứng rõ nét cho kiến trúc bộ nhớ tiêu chuẩn: 
+ vùng Stack (0061...) luôn được cấp phát ở đỉnh bộ nhớ (địa chỉ cao nhất) và phát triển hướng xuống,
+  trong khi dữ liệu tĩnh như .bss hay .rodata (0040...) nằm ở đáy bộ nhớ với địa chỉ thấp hơn hẳn.
+
+  4.3
+Hard Fault Handler 
+
+5
+
+Cách 1 là lựa chọn đúng. Vì cách 2 lưu vào vùng .data, phải lưu 40KB vào Flash~20KB
+ trước khi nạp vào RAM, gây hiện tượng stack overflow.
+Còn cách 1 lưu thẳng vào RAM ~128k nên hợp lệ.
