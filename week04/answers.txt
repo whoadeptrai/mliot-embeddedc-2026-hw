@@ -1,0 +1,14 @@
+Task 1/
+1.1
+     _3.3V: PMOS bật, NMOS tắt. Điện từ VDD chạy qua ngoài chân của vi điều khiển cấp cho tải.
+     _0V: PMOS tắt, NMOS bật. Tín hiệu ngõ ra là 0.
+
+1.2
+     _Đôi khi giá trị sẽ tự nhảy mặc dù không có tín hiệu chính thống, vì lúc này GPIO nhạy với
+      tín hiệu ngoài luồng.\
+
+Task 2/
+     _Nhà sản xuất mặc định tắt toàn bộ Clock để tiết kiệm năng lượng. Người dùng muốn xài 
+      ngoại vi nào chỉ cần tự enable clock lên là được.
+     _Nếu quên bật Clock cho port cần dùng thì không nhận được dữ liệu.
+
