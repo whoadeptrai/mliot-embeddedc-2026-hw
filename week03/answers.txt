@@ -1,0 +1,35 @@
+Task 1/
+1.1: _cmake: tạo các build script cho công cụ dùng để build(Ninja).
+     _Ninja: đọc quy tắc do cmake tạo để build.
+     _compiler: biến code của người viết thành mã mà chip có thể hiểu để nạp.
+     _flaser: lấy file compiler đã biên dịch nạp vào mạch.
+1.2: 
+    _Bước 1(cmake): đọc toàn bộ code project và CMakeLists.txt rồi tạo ra bản vẽ thi công.
+    _Bước 2(Ninja): Cầm bản vẽ thi công và build, sau đó gọi compiler.
+    _Bước 3(compiler): nhận lệnh từ Ninja, biên dịch code ra các file .bin hoặc .hex.
+    _Bước 4(flaser): Nạp các file .bin/.hex vào FLASH của chip.
+
+Task 2/
+2.1: _Các file .o thiếu địa chỉ vật lí các vùng nhớ và mất kết nối
+      tham chiếu với các hàm trong các file .o khác(main.o không có kết nối với các .o khác)
+     _Các file định dạng .bin là do linker tổng hợp các file .o kèm các 
+      linker script .ld lại. Nó sẽ là bản đày đủ chứa đúng địa chỉ vật lí
+      và nối đến đúng các hàm.
+2.2: 
+    _Vai trò của build dần: Ninja chỉ tập trung đúng file đã chỉnh sửa
+    _Cơ chế nhận biết file sửa đổi: So sánh dấu thời gian (mtime) và dependency tracking.
+
+Task 3/
+3.1: _LMA: Địa chỉ nơi dữ liệu được nạp và lưu trữ kể cả khi ngắt điện, nằm ở FLASH(ROM).
+     _VMA: Địa chỉ mà câu lệnh tìm tới khi chạy, sẽ mất khi ngắt điện, nằm ở RAM.
+     _Vì sao phải có VMA: Ở đọc data ở tốc độ cao khi chương trình thay đổi giá trị đó liên tục.
+     _Vì sao phải có LMA: Để khi sập nguồn/mất điện data vẫn được lưu giữ.
+3.2:
+     _Nếu quên chép data từ LMA lên VMA, hệ thống sẽ bị sai lệch dữ liệu khởi tạo.
+      Vùng nhớ sẽ chứa taonf các giá trị rác hoặc các giá trị cũ chưa được cập nhật.
+
+Task 4/
+4.1: cmake -G "Ninja" -S . -B build
+4.2: ninja -C build
+
+Task 5/
