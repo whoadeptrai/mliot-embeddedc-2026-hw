@@ -12,3 +12,6 @@ Task 2/
       ngoại vi nào chỉ cần tự enable clock lên là được.
      _Nếu quên bật Clock cho port cần dùng thì không nhận được dữ liệu.
 
+Task 5/
+
+Cách 1: https://drive.google.com/file/d/1fK41n_VJOmEJQc0NoZq0Bwgf6GkPJ7Op/view?usp=sharing

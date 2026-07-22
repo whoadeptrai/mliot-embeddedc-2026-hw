@@ -1,0 +1,15 @@
+# Các thư mục rác do tool build sinh ra
+build/
+.cache/
+.vscode/
+
+# Các file thực thi và file nhị phân
+*.exe
+*.elf
+*.bin
+*.hex
+*.map
+
+# Thư mục/file rác của hệ điều hành
+.DS_Store
+Thumbs.db
